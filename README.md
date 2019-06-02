@@ -48,6 +48,7 @@ Mô hình bài toán phân lớp khá đơn giản, bao gồm các thành phần
 - https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM (Siêu tham số, làm sao lựa chọn thuật toán phù hợp)
 - https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 - https://codetudau.com/tim-kiem-high-parameter-voi-scikit-learn/
+- https://medium.com/jatana/report-on-text-classification-using-cnn-rnn-han-f0e887214d5f
 
 [1]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 [2]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
