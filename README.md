@@ -46,7 +46,7 @@ Trong đó:
 
 ### 3. Quy trình cụ thể hiện thực bài toán phân loại văn bản
 
-<img src="./assets/flow-class-part.png"> 
+<img src="./assets/flow-class-part.png" width="300"> 
 
 *[LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf][3]*
 
@@ -55,6 +55,53 @@ Hầu hết các phương pháp máy học áp dụng cho bài toán phân loạ
 
 Để giải quyết vấn đề thông thường chúng ta sẽ chọn lựa những đặc trưng
 được đánh giá là hữu ích, bỏ đi những đặc trưng không quan trọng. Đối với phân loại văn bản, quá trình này rất quan trọng bởi vì véc tơ văn bản có số chiều rất lớn (>>10000), trong đó số thành phần dư thừa cũng rất nhiều. Vì vậy các phương pháp chọn lựa đặc trưng rất hiệu quả trong việc giảm chiều của véc tơ đặc trưng văn bản, chiều của véc tơ văn bản sau khi được giảm chỉ còn lại khoảng 1000 đến 5000 mà không mất đi độ chính xác phân loại. *(copy & paste)*
+
+### 4. Model Parameter và Model Hyperparameter
+
+https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM (Siêu tham số, làm sao lựa chọn thuật toán phù hợp)
+
+### 5. Các thuật ngữ trong xử lý ngôn ngữ tự nhiên
+
+https://ongxuanhong.wordpress.com/2016/02/05/cac-thuat-ngu-trong-xu-ly-ngon-ngu-tu-nhien/
+
+## II. Phân tích bài toán phân loại văn bản trong tiếng Việt
+
+Việc áp dụng phương pháp phân loại trong tiếng Việt còn khó khăn:
+
+- Không có tập dữ liệu chuẩn cho việc phân loại.
+- Chưa có thống nhất về font và dấu câu.
+- Biểu diễn văn bản Tiếng Việt còn nhiều trở ngại do bị phụ thuộc nhiều vào phương pháp tách từ. Vì phương pháp này áp dụng đối với tiếng Việt không đạt hiệu quả cao như tiếng Anh. Vì vậy, để có thể áp dụng tốt các thuật toán phân loại hiệu quả cao trong ngôn ngữ tiếng Anh thì phải tìm ra một phương pháp tách từ tốt. Trong tiếng Anh đơn vị nhỏ nhất là "từ" trong khi tiếng Việt là "tiếng" và khoảng trắng ngăn cách không thể hiện rõ đâu là "từ" vì phải phụ thuộc vào ngữ cảnh. Vì vậy, trước khi phân loại phải phải tìm hiểu về cách tách từ trong tiếng Việt.
+
+## 1. Tách từ
+
+Bối cảnh tách từ trong tiếng Việt và tiếng Hoa.
+
+<img src="./assets/character.png" width="440"> 
+
+*[phan-loai-tintucbaodientu - 3.2.1][5]*
+
+Các phương pháp tiếp cận tách từ:
+
+- Dựa trên từ (Word-based approaches)
+- Dựa trên ký tự (Character-based approaches)
+
+## 1. Biểu diễn văn bản dưới dạng vertor đặc trưng
+
+<img src="./assets/slipt-words.png" width="400">
+
+https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
+
+Bước đầu tiên của hầu hết thuật toán phân loại văn bản là chuyển mô tả văn bản thành một dạng mô tả khác sao cho phù hợp với thuật toán. Hầu hết các thuật toán phân loại đều sử dụng cách biểu diễn văn bản sử dụng vertor đặc trưng.
+
+## 2. Các thuật toán/ model trong phân loại văn bản tiếng Anh
+
+https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
+
+https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
+
+## 3. Cách đánh giá thuật toán/ model
+
+https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM 
 
 ## Tham khảo
 
@@ -68,3 +115,4 @@ Hầu hết các phương pháp máy học áp dụng cho bài toán phân loạ
 [2]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 [3]:https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
 [4]:https://medium.com/jatana/report-on-text-classification-using-cnn-rnn-han-f0e887214d5f 
+[5]:https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422
