@@ -21,7 +21,7 @@ Trong đó:
 - **Learn/train model** (chọn model machine learning và huấn luyện): Lựa chọn một thuật toán tối ưu nhất cho bài toán phân loại văn bản.
 - **Evaluation/results** (đánh giá kết quả): Công đoạn cuối, đánh giá kết quả nhận được.
 
-## Mô hình khái quát trong bài toán phân lớp
+## 2. Mô hình khái quát trong bài toán phân lớp
 
 <img src="./assets/review-text-classification.png">
 
