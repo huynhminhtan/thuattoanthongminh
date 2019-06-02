@@ -25,6 +25,8 @@ Trong đó:
 
 <img src="./assets/review-text-classification.png">
 
+*[report-on-text-classification-using-cnn-rnn-han][4]*
+
 Ban đầu sẽ chia bộ dữ liệu (dataset) thành 2 phần: data train và data test. Tổng thể một bài toán phân lớp sẽ chia thành 2 công việc:
 
 - Huấn luyện:  
@@ -50,3 +52,4 @@ Mô hình bài toán phân lớp khá đơn giản, bao gồm các thành phần
 [1]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 [2]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 [3]:https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
+[4]:https://medium.com/jatana/report-on-text-classification-using-cnn-rnn-han-f0e887214d5f 
