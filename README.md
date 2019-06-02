@@ -95,9 +95,8 @@ Bước đầu tiên của hầu hết thuật toán phân loại văn bản là
 
 ## 2. Các thuật toán/ model trong phân loại văn bản tiếng Anh
 
-https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
-
-https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
+- https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
+- https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
 
 ## 3. Cách đánh giá thuật toán/ model
 
