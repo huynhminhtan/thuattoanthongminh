@@ -85,7 +85,7 @@ Các phương pháp tiếp cận tách từ:
 - Dựa trên từ (Word-based approaches)
 - Dựa trên ký tự (Character-based approaches)
 
-## 1. Biểu diễn văn bản dưới dạng vertor đặc trưng
+### 1. Biểu diễn văn bản dưới dạng vertor đặc trưng
 
 <img src="./assets/slipt-words.png" width="400">
 
@@ -93,12 +93,12 @@ https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
 
 Bước đầu tiên của hầu hết thuật toán phân loại văn bản là chuyển mô tả văn bản thành một dạng mô tả khác sao cho phù hợp với thuật toán. Hầu hết các thuật toán phân loại đều sử dụng cách biểu diễn văn bản sử dụng vertor đặc trưng.
 
-## 2. Các thuật toán/ model trong phân loại văn bản tiếng Anh
+### 2. Các thuật toán/ model trong phân loại văn bản tiếng Anh
 
 - https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
 - https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
 
-## 3. Cách đánh giá thuật toán/ model
+### 3. Cách đánh giá thuật toán/ model
 
 https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM 
 
