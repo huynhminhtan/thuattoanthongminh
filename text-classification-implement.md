@@ -18,11 +18,12 @@
 
 ### Các ghi chú
 
-Các yếu tố ảnh hưởng đến độ chính xác của bài toán:
-
 Cách mô tả dữ liệu test - train:
-  - https://viblo.asia/p/phan-loai-van-ban-tieng-viet-tu-dong-phan-1-yMnKM3bal7P
-  - https://github.com/duyvuleo/VNTC/blob/master/Data/10Topics/Ver1.1/Stats.txt
+
+- https://viblo.asia/p/phan-loai-van-ban-tieng-viet-tu-dong-phan-1-yMnKM3bal7P
+- https://github.com/duyvuleo/VNTC/blob/master/Data/10Topics/Ver1.1/Stats.txt
+
+Các yếu tố ảnh hưởng đến độ chính xác của bài toán:
 
 - Tách từ   -> yêu cầu 1 phương pháp tách từ chuẩn xác.
 - Vertor hóa    -> BoW xóa bỏ những chiều vertor có trọng số là 0 để giảm số chiều -> áp dụng đánh trọng số TF-IDF.
