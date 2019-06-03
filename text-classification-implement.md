@@ -13,10 +13,16 @@
 
 - Bài toán về ứng dụng Naive Bayes sử dụng Bow trong phân loại, có code demo: https://viblo.asia/p/ung-dung-naive-bayes-vao-phan-loai-bai-bao-Ljy5VM2jlra
 - Bài hướng dẫn về phân loại bài viết Tiếng Việt: https://viblo.asia/p/phan-loai-van-ban-tieng-viet-tu-dong-phan-1-yMnKM3bal7P
+- Ứng dụng Naive Bayes vào phân loại bài báo
+: https://viblo.asia/p/ung-dung-naive-bayes-vao-phan-loai-bai-bao-Ljy5VM2jlra
 
 ### Các ghi chú
 
 Các yếu tố ảnh hưởng đến độ chính xác của bài toán:
+
+Cách mô tả dữ liệu test - train:
+  - https://viblo.asia/p/phan-loai-van-ban-tieng-viet-tu-dong-phan-1-yMnKM3bal7P
+  - https://github.com/duyvuleo/VNTC/blob/master/Data/10Topics/Ver1.1/Stats.txt
 
 - Tách từ   -> yêu cầu 1 phương pháp tách từ chuẩn xác.
 - Vertor hóa    -> BoW xóa bỏ những chiều vertor có trọng số là 0 để giảm số chiều -> áp dụng đánh trọng số TF-IDF.
