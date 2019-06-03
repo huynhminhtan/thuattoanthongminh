@@ -6,6 +6,9 @@
 
 - Dataset: https://github.com/duyvuleo/VNTC/blob/master/Data/10Topics/Ver1.1/Stats.txt
 
+- Vitk -- A Vietnamese Text Processing Toolkit https://github.com/phuonglh/vn.vitk
+- VnCoreNLP: A Vietnamese natural language processing toolkit https://github.com/vncorenlp/VnCoreNLP
+
 ### Bài hướng dẫn
 
 - Bài toán về ứng dụng Naive Bayes sử dụng Bow trong phân loại, có code demo: https://viblo.asia/p/ung-dung-naive-bayes-vao-phan-loai-bai-bao-Ljy5VM2jlra
