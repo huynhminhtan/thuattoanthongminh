@@ -13,8 +13,7 @@
 
 - Bài toán về ứng dụng Naive Bayes sử dụng Bow trong phân loại, có code demo: https://viblo.asia/p/ung-dung-naive-bayes-vao-phan-loai-bai-bao-Ljy5VM2jlra
 - Bài hướng dẫn về phân loại bài viết Tiếng Việt: https://viblo.asia/p/phan-loai-van-ban-tieng-viet-tu-dong-phan-1-yMnKM3bal7P
-- Ứng dụng Naive Bayes vào phân loại bài báo
-: https://viblo.asia/p/ung-dung-naive-bayes-vao-phan-loai-bai-bao-Ljy5VM2jlra
+- Ứng dụng Naive Bayes vào phân loại bài báo: https://viblo.asia/p/ung-dung-naive-bayes-vao-phan-loai-bai-bao-Ljy5VM2jlra
 
 ### Các ghi chú
 
