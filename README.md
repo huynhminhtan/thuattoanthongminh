@@ -72,7 +72,13 @@ Việc áp dụng phương pháp phân loại trong tiếng Việt còn khó kh�
 - Chưa có thống nhất về font và dấu câu.
 - Biểu diễn văn bản Tiếng Việt còn nhiều trở ngại do bị phụ thuộc nhiều vào phương pháp tách từ. Vì phương pháp này áp dụng đối với tiếng Việt không đạt hiệu quả cao như tiếng Anh. Vì vậy, để có thể áp dụng tốt các thuật toán phân loại hiệu quả cao trong ngôn ngữ tiếng Anh thì phải tìm ra một phương pháp tách từ tốt. Trong tiếng Anh đơn vị nhỏ nhất là "từ" trong khi tiếng Việt là "tiếng" và khoảng trắng ngăn cách không thể hiện rõ đâu là "từ" vì phải phụ thuộc vào ngữ cảnh. Vì vậy, trước khi phân loại phải phải tìm hiểu về cách tách từ trong tiếng Việt.
 
-## 1. Tách từ
+### Khái niệm chung
+
+- **POS tagging** (gán nhãn từ loại): là việc phân loại các từ trong một câu (danh từ, trạng từ, tính từ hay động từ, v.v..), xem thêm: [nlp-part-of-speech-pos][7]
+- **Word segmentation** (tách từ): tách một đoạn text (một chuỗi liên tiếp các ký tự) thành những từ (word hay token) riêng lẻ, xem thêm: [nlp-word-segmentation][8], [Vietnamese Word Segmentation][9]
+- **Named Entity Recognition** (gán nhãn boundary (ranh giới) và type (thể loại)): phân loại text trong văn bản thành những loại xác định trước như là tên người, tổ chức, địa điểm, thời gian, số lượng, giá trị tiền tệ, phần trăm. “American Airlines[ORG]”, một đơn vị của “AMR Corp.[ORG]”, ngay lâp tức có những động thái phù hợp, phát ngôn viên “Tim Wagner[PER]” cho biết, xem thêm: [Nhận_dạng_thực_thể_có_tên][10], [named-entity-recognition][11]
+
+### 1. Tách từ
 
 Bối cảnh tách từ trong tiếng Việt và tiếng Hoa.
 
@@ -85,7 +91,7 @@ Các phương pháp tiếp cận tách từ:
 - Dựa trên từ (Word-based approaches)
 - Dựa trên ký tự (Character-based approaches)
 
-### 1. Biểu diễn văn bản dưới dạng vertor đặc trưng
+### 2. Biểu diễn văn bản dưới dạng vertor đặc trưng
 
 <img src="./assets/slipt-words.png" width="400">
 
@@ -93,14 +99,26 @@ https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
 
 Bước đầu tiên của hầu hết thuật toán phân loại văn bản là chuyển mô tả văn bản thành một dạng mô tả khác sao cho phù hợp với thuật toán. Hầu hết các thuật toán phân loại đều sử dụng cách biểu diễn văn bản sử dụng vertor đặc trưng.
 
-### 2. Các thuật toán/ model trong phân loại văn bản tiếng Anh
+### 3. Các thuật toán/ model trong phân loại văn bản tiếng Anh
 
 - https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
 - https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
 
-### 3. Cách đánh giá thuật toán/ model
+### 4. Cách đánh giá thuật toán/ model
 
 https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM 
+
+## III. Tools
+
+- Numpy/Scipy: thư viện tính toán số học cơ bản.
+- Matplotlib: thư viện dùng để vẽ đồ thị, biểu đồ, v.v…
+- **Jupyter Notebook**: Web editor, có thể vừa thực thi vừa confirm kết quả.
+- **Pandas**: thư viện xử lý lượng lớn data nhanh chóng.
+- **Scikit-Learn**: thư viện chuẩn dành cho Machine Learning của Python.
+- **Gensim**: thư viện xử lý ngôn ngữ tự nhiên chuyên biệt về topic model.
+- TensorFlow: engine/library được phát triển bởi Google dành cho Deep Learning.
+
+Trích từ: *[7-librarytool-nen-biet-khi-bat-dau-machine-learningdeep-learning-tren-python][6]*
 
 ## Tham khảo
 
@@ -109,9 +127,16 @@ https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM
 - https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 - https://codetudau.com/tim-kiem-high-parameter-voi-scikit-learn/
 - https://medium.com/jatana/report-on-text-classification-using-cnn-rnn-han-f0e887214d5f
+- http://vlsp.org.vn:8080/vitk/ (demo)
 
 [1]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 [2]:https://codetudau.com/gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien/index.html
 [3]:https://github.com/duyvuleo/VNTC/blob/master/Report/LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf
 [4]:https://medium.com/jatana/report-on-text-classification-using-cnn-rnn-han-f0e887214d5f 
 [5]:https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422
+[6]:https://studylinux.wordpress.com/2017/11/03/7-librarytool-nen-biet-khi-bat-dau-machine-learningdeep-learning-tren-python/#more-2612
+[7]:https://chienuit.wordpress.com/2016/04/17/nlp-part-of-speech-pos/
+[8]:https://chienuit.wordpress.com/2016/04/21/nlp-word-segmentation/
+[9]:http://vlsp.org.vn:8080/vitk/tok/index.xhtml
+[10]:https://vi.wikipedia.org/wiki/Nhận_dạng_thực_thể_có_tên
+[11]:https://medium.com/@liennguyen_51419/17-1-named-entity-recognition-part-2-1-2287823bee3d
