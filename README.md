@@ -97,7 +97,14 @@ Các phương pháp tiếp cận tách từ:
 
 https://www.slideshare.net/duyvong3/phan-loai-tintucbaodientu-40099422 2.2.1
 
-Bước đầu tiên của hầu hết thuật toán phân loại văn bản là chuyển mô tả văn bản thành một dạng mô tả khác sao cho phù hợp với thuật toán. Hầu hết các thuật toán phân loại đều sử dụng cách biểu diễn văn bản sử dụng vertor đặc trưng.
+Trong xử lý ngôn ngữ tự nhiên, việc biểu diễn một từ thành một vector đóng một vai trò cực kỳ quan trọng. Nó lợi ích rất nhiều trong việc thể hiện sự tương đồng, đối lập về ngữ nghĩa giữa các từ, giúp mô hình hóa vector cho 1 câu hay đoạn văn, tìm các câu có nghĩa tương đồng,... trích từ:  [xay-dung-mo-hinh-khong-gian-vector-cho-tieng-viet][12]
+
+Và bước đầu tiên của hầu hết thuật toán phân loại văn bản là chuyển văn bản thành một dạng mô tả khác sao cho phù hợp với thuật toán cần sử dụng. Hầu hết các thuật toán phân loại đều sử dụng cách biểu diễn văn bản sử dụng vertor đặc trưng.
+
+**Word embbding là gì?** Mở đầu như chúng ta đã biết máy tính được cấu tạo từ những con số, do đó nó chỉ có thể đọc được dữ liệu số mà thôi. Trong natural language processing thì để xử lý dữ liệu text chúng ta cũng phải chuyển dữ liệu từ text sang numeric, tức là đưa nó vào một không gian mới người ta thường gọi là embbding. Trước đây người ta mã hóa theo kiểu one hot encoding tức là tạo một vocabualary cho dữ liệu và mã hóa các word trong document thành những vectoc, nếu word đó có trong document thì mã hóa là 1 còn không có sẽ là 0. Kết quả tạo ra một sparse matrix, tức là matrix hầu hết là 0.Các mã hóa này có nhiều nhược điểm đó là thứ nhất là số chiều của nó rất lớn (NxM, N là số document còn M là số vocabulary), thứ 2 các word không có quan hệ với nhau. Điều đó dẫn đến người ta nghĩ ra một model mới có tên là *Word embbding*, Xem thêm: [word2vec][13]
+
+- [xay-dung-mo-hinh-khong-gian-vector-cho-tieng-viet][12]
+- [nlp-truyen-kieu-word2vec][14]
 
 ### 3. Các thuật toán/ model trong phân loại văn bản tiếng Anh
 
@@ -140,3 +147,6 @@ Trích từ: *[7-librarytool-nen-biet-khi-bat-dau-machine-learningdeep-learning-
 [9]:http://vlsp.org.vn:8080/vitk/tok/index.xhtml
 [10]:https://vi.wikipedia.org/wiki/Nhận_dạng_thực_thể_có_tên
 [11]:https://medium.com/@liennguyen_51419/17-1-named-entity-recognition-part-2-1-2287823bee3d
+[12]:https://viblo.asia/p/xay-dung-mo-hinh-khong-gian-vector-cho-tieng-viet-GrLZDXr2Zk0
+[13]:https://thorpham.github.io/blog/2018/04/24/word2vec/
+[14]:https://blog.duyet.net/2017/04/nlp-truyen-kieu-word2vec.html#.XPSMx3UzZNw
