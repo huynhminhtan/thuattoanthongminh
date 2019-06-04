@@ -113,7 +113,82 @@ Và bước đầu tiên của hầu hết thuật toán phân loại văn bản
 
 ### 4. Cách đánh giá thuật toán/ model
 
-https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM 
+Có nhiều cách để đánh giá mô hình:
+
+#### 4.1. Accuracy
+
+Chia thành hai phần **training** và **testing** áp dụng một mô hình để train từ tập dữ liệu **training**. Tiếp theo sử dụng mô hình đó dự đoán trên tập **testing** và cuối cùng là tìm ra tỉ lệ số dữ liệu dự đoán đúng / tổng số dữ liệu testing.
+
+#### 4.2. Confusion matrix
+
+Cách tính sử dụng accuracy như ở trên chỉ cho biết được bao nhiêu phần trăm lượng dữ liệu được phân loại đúng mà không chỉ ra được cụ thể mỗi loại được phân loại như thế nào, lớp nào được phân loại đúng nhiều nhất, và dữ liệu thuộc lớp nào thường bị phân loại nhầm vào lớp khác. Để có thể đánh giá được các giá trị này, chúng ta sử dụng một ma trận được gọi là confusion matrix.
+
+Confusion matrix thể hiện có bao nhiêu điểm dữ liệu thực sự thuộc (actual) vào một class, và được dự đoán (predict) là rơi vào một class. Có tổng cộng 10 điểm dữ liệu và ma trận 3x3.
+
+```text
+ Total: 10 | Predicted | Predicted | Predicted |   
+           |    as: 0  |    as: 1  |    as: 2  |   
+-----------|-----------|-----------|-----------|---
+ True: 0   |     2     |     1     |     1     | 4 
+-----------|-----------|-----------|-----------|---
+ True: 1   |     1     |     2     |     0     | 3 
+-----------|-----------|-----------|-----------|---
+ True: 2   |     0     |     1     |     2     | 3 
+-----------|-----------|-----------|-----------|---
+```
+
+Ma trận thu được được gọi là confusion matrix. Nó là một ma trận vuông với **kích thước mỗi chiều bằng số lượng lớp dữ liệu**. Giá trị tại hàng thứ i, cột thứ j là số lượng điểm **lẽ ra thuộc vào class i nhưng lại được dự đoán là thuộc vào class j**. Như vậy, nhìn vào hàng thứ nhất (0), ta có thể thấy được rằng trong số bốn điểm thực sự thuộc lớp 0, chỉ có hai điểm được phân loại đúng, hai điểm còn lại bị phân loại nhầm vào lớp 1 và lớp 2.
+
+Có thể suy ra ngay rằng tổng các phần tử trong toàn ma trận này chính là số điểm trong tập kiểm thử. Các phần tử trên đường chéo của ma trận là số điểm được phân loại đúng của mỗi lớp dữ liệu.
+
+Suy ra **accuracy** chính bằng tổng các phần tử trên đường chéo chia cho tổng các phần tử của toàn ma trận.
+
+Xem thêm: [evaluation-confusion-matrix][15]
+
+#### 4.3. Precision, Recall và F1-Score
+
+Trong những bài toán này, người ta thường định nghĩa lớp dữ liệu quan trọng hơn cần được xác định đúng là lớp Positive (P-dương tính), lớp còn lại được gọi là Negative (N-âm tính). Ta định nghĩa True Positive (TP), False Positive (FP), True Negative (TN), False Negative (FN) dựa trên confusion matrix chưa chuẩn hoá như sau:
+
+```text
+                  |      Predicted      |      Predicted      |
+                  |     as Positive     |     as Negative     |
+------------------|---------------------|---------------------|
+ Actual: Positive | True Positive (TP)  | False Negative (FN) |
+------------------|---------------------|---------------------|
+ Actual: Negative | False Positive (FP) | True Negative (TN)  |
+------------------|---------------------|---------------------|
+```
+
+Cách tính Precision và Recall.
+
+<img src="./assets/pr.png" width="400">
+
+Precision cao đồng nghĩa với việc độ chính xác của các điểm tìm được là cao. Recall cao đồng nghĩa với việc True Positive Rate cao, tức tỉ lệ bỏ sót các điểm thực sự positive là thấp.
+
+##### a. Precision (tỷ lệ chính xác) - bao nhiêu cái đúng được lấy ra
+
+<img src="./assets/percision.png" width="270">
+
+Xem xét trên tập dữ liệu kiểm tra (data-test) xem có **bao nhiêu dữ liệu được mô hình dự đoán đúng**. Tức là, số phát hiện đúng chia cho số đem đi kiểm thử. Đây chính là chỉ số accuracy - độ chính xác như bên trên. Giá trị càng cao, càng tốt.
+
+##### b. Recall (tỷ lệ tái hiện) - bao nhiêu cái được lấy ra là đúng
+
+<img src="./assets/recall.png">
+
+Recall được định nghĩa là tỉ lệ số điểm **true positive** trong số những điểm thực sự (actual) là **positive** (TP + FN).
+
+Thể hiện tỉ lệ dự đoán chính xác của một dữ liệu.
+
+##### c. F1-Score - trung bình điều hòa (harmonic mean)
+
+<img src="./assets/f1-score.png" width="280">
+
+Đây được gọi là một trung bình điều hòa (harmonic mean) của các tiêu chí Precision và Recall. Nó có xu hướng lấy giá trị gần với giá trị nào nhỏ hơn giữa 2 giá trị Precision và Recall và đồng thời nó có giá trị lớn nếu cả 2 giá trị Precision và Recall đều lớn. Chính vì thế F1-Score thể hiện được một cách khách quan hơn performance của một mô hình học máy.
+
+Xem thêm:
+
+- https://viblo.asia/p/mot-vai-hieu-nham-khi-moi-hoc-machine-learning-4dbZNoDnlYM 
+- https://blog.vietnamlab.vn/2017/10/24/danh-gia-model-cua-machine-learning/
 
 ## III. Tools
 
@@ -150,3 +225,4 @@ Trích từ: *[7-librarytool-nen-biet-khi-bat-dau-machine-learningdeep-learning-
 [12]:https://viblo.asia/p/xay-dung-mo-hinh-khong-gian-vector-cho-tieng-viet-GrLZDXr2Zk0
 [13]:https://thorpham.github.io/blog/2018/04/24/word2vec/
 [14]:https://blog.duyet.net/2017/04/nlp-truyen-kieu-word2vec.html#.XPSMx3UzZNw
+[15]:https://machinelearningcoban.com/2017/08/31/evaluation/#-confusion-matrix
