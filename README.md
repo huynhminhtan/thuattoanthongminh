@@ -145,7 +145,7 @@ Suy ra **accuracy** chính bằng tổng các phần tử trên đường chéo 
 
 Xem thêm: [evaluation-confusion-matrix][15]
 
-#### 4.3. Precision, Recall, F1-Score
+#### 4.3. Precision, Recall và F1-Score
 
 Trong những bài toán này, người ta thường định nghĩa lớp dữ liệu quan trọng hơn cần được xác định đúng là lớp Positive (P-dương tính), lớp còn lại được gọi là Negative (N-âm tính). Ta định nghĩa True Positive (TP), False Positive (FP), True Negative (TN), False Negative (FN) dựa trên confusion matrix chưa chuẩn hoá như sau:
 
