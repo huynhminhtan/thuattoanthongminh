@@ -165,13 +165,13 @@ Cách tính Precision và Recall.
 
 Precision cao đồng nghĩa với việc độ chính xác của các điểm tìm được là cao. Recall cao đồng nghĩa với việc True Positive Rate cao, tức tỉ lệ bỏ sót các điểm thực sự positive là thấp.
 
-##### Precision (tỷ lệ chính xác) - bao nhiêu cái đúng được lấy ra
+##### a. Precision (tỷ lệ chính xác) - bao nhiêu cái đúng được lấy ra
 
 <img src="./assets/percision.png" width="270">
 
 Xem xét trên tập dữ liệu kiểm tra (data-test) xem có **bao nhiêu dữ liệu được mô hình dự đoán đúng**. Tức là, số phát hiện đúng chia cho số đem đi kiểm thử. Đây chính là chỉ số accuracy - độ chính xác như bên trên. Giá trị càng cao, càng tốt.
 
-##### Recall (tỷ lệ tái hiện) - bao nhiêu cái được lấy ra là đúng
+##### b. Recall (tỷ lệ tái hiện) - bao nhiêu cái được lấy ra là đúng
 
 <img src="./assets/recall.png">
 
@@ -179,11 +179,11 @@ Recall được định nghĩa là tỉ lệ số điểm **true positive** tron
 
 Thể hiện tỉ lệ dự đoán chính xác của một dữ liệu.
 
-##### F1-Score - trung bình điều hòa (harmonic mean)
+##### c. F1-Score - trung bình điều hòa (harmonic mean)
 
 <img src="./assets/f1-score.png" width="280">
 
-Đây được gọi là một trung bình điều hòa(harmonic mean) của các tiêu chí Precision và Recall. Nó có xu hướng lấy giá trị gần với giá trị nào nhỏ hơn giữa 2 giá trị Precision và Recall và đồng thời nó có giá trị lớn nếu cả 2 giá trị Precision và Recall đều lớn. Chính vì thế F1-Score thể hiện được một cách khách quan hơn performance của một mô hình học máy.
+Đây được gọi là một trung bình điều hòa (harmonic mean) của các tiêu chí Precision và Recall. Nó có xu hướng lấy giá trị gần với giá trị nào nhỏ hơn giữa 2 giá trị Precision và Recall và đồng thời nó có giá trị lớn nếu cả 2 giá trị Precision và Recall đều lớn. Chính vì thế F1-Score thể hiện được một cách khách quan hơn performance của một mô hình học máy.
 
 Xem thêm:
 
