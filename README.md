@@ -115,11 +115,11 @@ Và bước đầu tiên của hầu hết thuật toán phân loại văn bản
 
 Có nhiều cách để đánh giá mô hình:
 
-#### Accuracy
+#### 4.1. Accuracy
 
 Chia thành hai phần **training** và **testing** áp dụng một mô hình để train từ tập dữ liệu **training**. Tiếp theo sử dụng mô hình đó dự đoán trên tập **testing** và cuối cùng là tìm ra tỉ lệ số dữ liệu dự đoán đúng / tổng số dữ liệu testing.
 
-#### 4.1. Confusion matrix
+#### 4.2. Confusion matrix
 
 Cách tính sử dụng accuracy như ở trên chỉ cho biết được bao nhiêu phần trăm lượng dữ liệu được phân loại đúng mà không chỉ ra được cụ thể mỗi loại được phân loại như thế nào, lớp nào được phân loại đúng nhiều nhất, và dữ liệu thuộc lớp nào thường bị phân loại nhầm vào lớp khác. Để có thể đánh giá được các giá trị này, chúng ta sử dụng một ma trận được gọi là confusion matrix.
 
@@ -145,7 +145,7 @@ Suy ra **accuracy** chính bằng tổng các phần tử trên đường chéo 
 
 Xem thêm: [evaluation-confusion-matrix][15]
 
-#### 4.2. Precision, Recall, F1-Score
+#### 4.3. Precision, Recall, F1-Score
 
 Trong những bài toán này, người ta thường định nghĩa lớp dữ liệu quan trọng hơn cần được xác định đúng là lớp Positive (P-dương tính), lớp còn lại được gọi là Negative (N-âm tính). Ta định nghĩa True Positive (TP), False Positive (FP), True Negative (TN), False Negative (FN) dựa trên confusion matrix chưa chuẩn hoá như sau:
 
