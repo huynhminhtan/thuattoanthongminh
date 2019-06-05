@@ -27,6 +27,21 @@ Do đó ta có:
 Trên thực tế thì ít khi tìm được dữ liệu mà các thành phần là hoàn toàn độc lập với nhau. Tuy nhiên giả thiết này giúp cách tính toán trở nên đơn giản, training data nhanh, đem lại hiệu quả bất ngờ với các lớp bài toán nhất định.  
 
 ### 2.2. Mô hình Multinomial Naive Bayes  
+#### 2.2.1. Công thức  
+Ở mô hình này, các feature vector là các giá trị số tự nhiên mà giá trị thể hiện số lần từ đó xuất hiện trong văn bản. Ta tính xác suất từ xuất hiện trong văn bản *P(Xi|Y)* như sau:  
+<img src="./assets/CT-4.png">  
+Trong đó:  
+<img src="./assets/CT-5.png"> là tổng số lần xuất hiện trong văn bản training T của từ i.  
+<img src="./assets/CT-6.png"> là tổng số lần xuất hiện trong văn bản training T của tất cả bộ từ vựng.  
+*n* kích thước của bộ từ vựng.  
+*alpha* <img src="./assets/CT-7.png"> có ý nghĩa giải thích cho các từ không có trong bộ từ vựng học và ngăn chặn xác suất bằng 0 cho các tính toán tiếp theo.  
+<img src="./assets/CT-8.png"> gọi là Laplace Smoothing.  
+<img src="./assets/CT-9.png"> gọi là Lidstone Smoothing.  
+Chúng ta có thể thấy rằng khi *alpha* thay đổi:  
+- Nếu *alpha* nhỏ => phương sai cao.  
+- Nếu *alpha* lớn => độ lệch cao.  
+Câu hỏi đặt ra là làm thế nào để xác định đúng *alpha*?  
+Câu trả lời chính là cross-validation. Do đó, *alpha* là siêu tham số (hyperparameter).   
 
 ### 2.3. Đánh giá  
 
