@@ -161,6 +161,16 @@ Dựa trên kết quả của tác giả [Đinh Điền et al, 2001], trong đ�
 
 ## 4.1. Lý do chọn phương pháp Naïve Bayes
 
+Naïve Bayes là một phương pháp rất phổ biến sử dụng xác suất có điều kiện giữa từ và chủ đề để xác định chủ đề của văn bản. Các xác suất này dựa trên việc thống kê sự xuất hiện của từ và chủ đề trong tập huấn luyện. Tập huấn luyện lớn có thể mang lại kết quả khả quan cho Naïve Bayes.
+
+Với số lượng chủ đề tin tức điện tử không nhiều (khoảng 20 chủ đề) thì việc sử dụng các bài báo tiếng Việt có sẵn như cơ sở dữ liệu huấn luyện rất phù hợp. Trong báo chí, với mỗi chủ đề luôn có các từ chuyên môn với tần số xuất hiện rất cao, việc tận dụng tần số phụ thuộc của các từ này vào chủ đề có thể đem lại kết quả khả quan cho phân loại.
+
+Mặt khác, phương pháp Naïve Bayes là phương pháp khá cổ điển được sử dụng đầu tiên bởi Maron vào năm 1961 [Maron, 1961], và sau đó rất phổ biến trong các lãnh vực tìm kiếm, lọc mail, các bộ lọc mail... nên có thể tin tưởng về xác suất chính xác và các ưu khuyết điểm của phương pháp này để áp dụng phù hợp.
+
+Naïve Bayes bởi phương pháp đơn giản, tốc độ nhanh, cài đặt tương đối không quá phức tạp phù hợp với thời gian cho phép.
+
+SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng thời gian huấn luyện lại rất lâu và đồi hỏi lượng dữ liệu huấn luyện lớn.
+
 ## 4.2. Thu thập dữ liệu và làm sạch dữ liệu (Raw Data và Clean Data)
 
 ## 4.3. Trích xuất đặc trưng (Feature Extraction)
