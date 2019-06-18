@@ -285,7 +285,7 @@ Thể hiện tỉ lệ dự đoán chính xác của một dữ liệu.
 Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bản tiếng Việt chạy trên môi trường Linux và một số thư viện hỗ trợ như bên dưới:
 
 - Triển khai phần cứng: Ubuntu 16.4, Core™ i5, 2.30GHz × 4 (4 nhân 8 luồng), SSD, Mem 16G.
-- Môi trường triển khai: Python 3.5.
+- Môi trường thực thi: Python 3.5.
 - Các thư viện hỗ trợ:
   - Numpy/Scipy: thư viện tính toán số học cơ bản.
   - Matplotlib: thư viện dùng để vẽ đồ thị, biểu đồ.
