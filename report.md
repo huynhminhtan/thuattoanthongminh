@@ -407,6 +407,41 @@ Thể hiện tỉ lệ dự đoán chính xác của một dữ liệu.
 
 Đây được gọi là một trung bình điều hòa (harmonic mean) của các tiêu chí Precision và Recall. Nó có xu hướng lấy giá trị gần với giá trị nào nhỏ hơn giữa 2 giá trị Precision và Recall và đồng thời nó có giá trị lớn nếu cả 2 giá trị Precision và Recall đều lớn. Chính vì thế F1-Score thể hiện được một cách khách quan hơn performance của một mô hình học máy.
 
+### 4.7.4. Micro-average và Macro-average
+
+Với các bài toán có rất nhiều lớp dữ liệu hai phép đánh giá dựa trên Precision-Recall được sử dụng là micro-average và macro-average.
+
+Đưa bài toán phân lớp nhiều lớp về bài toán phân lớp nhị phân bằng cách xem xét từng lớp. Với mỗi lớp, ta coi dữ liệu thuộc lớp đó có label là positive, tất cả các dữ liệu còn lại có label là negative. Sau đó, giá trị Precision, Recall, và PR curve được áp dụng lên từng lớp. Với mỗi lớp, ta sẽ nhận được một cặp giá trị precision và recall.
+
+#### a. Micro-average
+
+Tức TP được tính là tổng của toàn bộ TP của mỗi lớp. Tương tự với FP và FN. Với ví dụ trên, micro-average precision và recall tính được là:
+
+```text
+total_tp = tp1 + tp2 + tp3
+total_fp = fp1 + fp2 + fp3
+total_fn = fn1 + fn2 + fn3
+micro_ap = float(total_tp)/(total_tp + total_fp)
+micro_ar = float(total_tp)/(total_tp + total_fn)
+print('(micro_ap, micro_ar) = (%.2f, %.2f)' % (micro_ap, micro_ar))
+
+(micro_ap, micro_ar) = (0.79, 0.75)
+```
+
+#### b. Macro-average
+
+Macro-average precision là trung bình cộng của các precision theo class, tương tự với Macro-average recall. Với ví dụ trên, ta có:
+
+```text
+macro_ap = (P1 + P2 + P3)/3
+macro_ar = (R1 + R2 + R3)/3
+print('(micro_ap, micro_ar) = (%.2f, %.2f)' % (macro_ap, macro_ar))
+
+(macro_ap, macro_ar) = (0.77, 0.70)
+```
+
+Macro-average F-Score cũng được tính tương tự như F-score nhưng dựa trên macro-average precision và macro-average recall.
+
 ## 4.8. Kết quả thực nghiệm
 
 ## 4.9. Môi trường triển khai
