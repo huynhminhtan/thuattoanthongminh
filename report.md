@@ -105,7 +105,31 @@ Trên thực tế thì ít khi tìm được dữ liệu mà các thành phần 
 
 # III. CÁC PHƯƠNG PHÁP TÁCH TỪ TIẾNG VIỆT HIỆN NAY
 
-## 3.1. Tổng quan về các phương pháp tách từ
+## 3.1. Tổng quan về các phương pháp tách từ Tiếng Việt
+
+So với Tiếng Anh, tách từ trong Tiếng Việt có nhiều điểm khác, dưới đây là bản so sánh qua nhiều điểm được tổng hợp dựa trên bảng công bố của [Đinh Điền, 2004].
+
+| Đặc điểm của Tiếng Việt                                                                                                                                                      | Đặc điểm của Tiếng Anh                                                                                                                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Được xếp là loại hình đơn lập (isolate) hay còn gọi là loại hình phi hình thái, không biến hình, đơn tiết.                                                                   | Là loại hình biến cách (flexion) hay còn gọi là loại hình khuất chiết.                                                                      |
+| Từ không biến đổi hình thái, ý nghĩa ngữ pháp nằm ở ngoài từ. Ví dụ : Chị ngã em nâng và Em ngã chị nâng.                                                                    | Từ có biến đổi hình thái, ý nghĩa ngữ pháp nằm ở trong từ. Ví dụ: I see him và He sees me.                                                  |
+| Phương thức ngữ pháp chủ yếu: trật tự từ và hư từ.                                                                                                                           | Phương thức ngữ pháp chủ yếu là : phụ tố.                                                                                                   |
+| Ví dụ: Gạo xay và Xay gạo; đang học và học rồi; “nó bảo sao không tới”, “sao không bảo nó tới”, “sao không tới bảo nó”...                                                    |                                                                                                                                             |
+| Ranh giới từ không được xác định mặc nhiên bằng khoảng trắng                                                                                                                 | Kết hợp giữa các hình vị là chặt chẽ, khó xác định, được nhận diện bằng khoảng trắng hoặc dấu câu.                                          |
+| Tồn tại loại từ đặc biệt “từ chỉ loại” (classifier) hay còn gọi là phó danh từ chỉ loại kèm theo với danh từ, như: cái bàn, cuốn sách, bức thư, con chó, con sông, vì sao... | Hiện tượng cấu tạo bằng từ ghép thêm phụ tố (affix) vào gốc từ là rất phổ biến. Ví dụ: anticomputerizational (anti-compute-er-ize-ation-al) |
+| Có hiện tượng láy và nói lái trong tiếng Việt. Ví dụ: lấp lánh, lung linh, hiện đại -> hại điện, thầy giáo -> tháo giầy...                                                   |                                                                                                                                             |
+
+Như vậy:
+
+Tiếng Việt là loại hình phi hình thái nên việc phân biệt loại từ (danh từ, động từ, tính từ ...) và ý nghĩa từ là rất khó, cho dù có sử dụng từ điển.
+
+Việc tiền xử lý văn bản (tách từ, tách đoạn, tách câu...) sẽ thêm phức tạp với phần xử lý các hư từ, phụ từ, từ láy.
+
+Phương thức ngữ pháp chủ yếu là trật tự từ nên nếu áp dụng phương pháp tính xác suất xuất hiện của từ có thể không chính xác như mong đợi.
+
+Ranh giới từ không được xác định mặc nhiên bằng khoảng trắng. Điều này khiến cho việc phân tích hình thái (tách từ) tiếng Việt trở nên khó khăn. Việc nhận diện ranh giới từ là quan trọng làm tiền đề cho các xử lý tiếp theo sau đó, như: kiểm lỗi chính tả, gán nhãn từ loại, thống kê tần suất từ.
+
+Vì giữa tiếng Anh và tiếng Việt có nhiều điểm khác biệt nên chúng ta không thể áp dụng y nguyên các thuật toán tiếng Anh cho tiếng Việt.
 
 ## 3.2. Một số phương pháp tách từ
 
