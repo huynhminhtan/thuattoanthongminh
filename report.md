@@ -214,6 +214,17 @@ SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng 
 
 ## 4.4. Thu thập dữ liệu và làm sạch dữ liệu (Raw Data và Clean Data)
 
+Raw data sẽ bao gồm các thành phần text không có ích cho việc training, hoặc có thể ảnh hưởng tiêu cực đến kết quả đầu ra.<br/>
+Các thành phần như:
+
+- **Ký tự đặc biệt**: Các ký tự như mệnh giá $(đôla), £(Bảng Anh) có thể cho ta biết ngữ cảnh đang nói về gì (vd như kinh tế), tuy nhiên, trong phần lớn các trường hợp, ta không cần các ký tự này trong data vì nó có thể ảnh hưởng xấu.
+
+- **Các thẻ HTML**: Các thẻ HTML như ```<h1></h1>```, ```<br></br>``` sẽ có thể tồn tại trong data text sau khi được crawl. Các thẻ này khi đưa vào training không chỉ không có ích mà còn có thể gây hiểu lầm cho model.
+
+- **Stopwords**: Hãy tưởng tượng rằng ngôn ngữ của chúng ta giống như một đống gạo bị lẫn với thóc. Việc cần làm của trích chọn đặc trưng đó chính là chọn ra các hạt gạo chất lượng tốt nhất từ đống thóc đó. Những hạt thóc đó được gọi là stop words tức là những từ không có ý nghĩa lắm đối với việc phân loại của chúng ta (các từ "như", "là",...). Chính vì thế nên cần phải loại bỏ nó trước khi xử lý dữ liệu. Trong Tiếng Việt chúng ta cần định nghĩa một danh sách các stopwords tùy thuộc vào lĩnh vực mà chúng ta cần xử lý văn bản.
+
+Sau khi các thành phần trên được loại bớt, ta sẽ có được Clean Data
+
 ## 4.5. Trích xuất đặc trưng (Feature Extraction)
 
 ### 4.5.1. Tách từ (Words segmentation)
