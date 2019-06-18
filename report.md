@@ -302,5 +302,5 @@ Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bả
 
 -------------------------------------------------------
 
-Làm rõ được tại sao phải chọn Naive Bayes
+Làm rõ được tại sao phải chọn Naive Bayes  
 Các phương pháp tách từ trong Tiếng Việt
