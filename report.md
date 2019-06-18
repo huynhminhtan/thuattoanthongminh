@@ -133,9 +133,29 @@ Vì giữa tiếng Anh và tiếng Việt có nhiều điểm khác biệt nên 
 
 ## 3.2. Một số phương pháp tách từ
 
+Bối cảnh tách từ trong tiếng Việt và tiếng Hoa.
+
+<img src="./assets/character.png" width="440"> 
+
+[Các hướng tiếp cận cơ bản trong tách từ tiếng Hoa và các hướng tiếp cận hiện tại được công bố trong tách từ tiếng Việt]
+
 ### 3.2.1. Các hướng tiếp cận dựa trên từ (Word-based approaches)
 
+Hướng tiếp cận dựa trên từ với mục tiêu tách được các từ hoàn chỉnh trong câu. Hướng tiếp cận này có hể chia ra là ba hướng: dựa trên thống kê (statistics-based), dựa trên từ điển (dictionary-based) và hydrid (kết hợp nhiều phương pháp với hy vọng đạt được những ưu điểm của các phương pháp này).
+
+Công trình của Đinh Điền et al (2001) đã cố gắng xây dựng tập ngữ liệu huấn luyện riêng (khoảng 10M) dựa trên các thông tin có nguồn gốc từ internet như tin tức, e-book... Tuy nhiên tập ngữ liệu vẫn còn khá nhỏ để đảm bảo dung lượng và độ phong phú cho việc tách từ. Mặc khác, do tập ngữ liệu được xây dựng một cách thủ công, nên sẽ phần nào mang tính chủ quan. Và một hạn chế nữa là việc đánh giá lại được những thay đổi hằng ngày rất chậm, và có thể xảy ra hiện tượng flip-flop (hiện tượng khi khắc phục lỗi này lại dẫn đến lỗi khác không ngờ tới) Ở hướng tiếp cận dựa trên từ điển, các từ được tách phải tương ứng với những từ có trong từ điển. Hiện tại, ta vẫn chưa xây dựng được một bộ từ điển Việt Nam chứa toàn bộ các từ và ngữ.
+
 ### 3.2.2. Các hướng tiếp cận dựa trên ký tự (Character-based approaches)
+
+Phải phân biệt rằng hình vị nhỏ nhất của tiếng Việt là “tiếng”, được cấu tạo bởi nhiều ký tự trong bảng chữ cái, trong khi hình vị nhỏ nhất của tiếng Hoa là một ký tự. Vì chữ viết tiếng Hoa là chữ tượng hình, không dựa trên bảng chữ cái Latin như tiếng Việt nên trong trường hợp tiếng Hoa, người ta xét hình vị là “ký tự”. Tuy nhiên, mỗi ký tự (character) trong tiếng Hoa được phát âm thành một “tiếng”, nên xét về mặt âm vị, ta có thể xem “tiếng” trong tiếng Hoa và tiếng Việt là tương tự nhau.
+
+Mặc dù có cách viết khác nhau, nhưng về cấu tạo từ và ngữ pháp của tiếng Hoa và tiếng Việt có nhiều điểm tương đồng nhau. Xét về nguồn gốc, tiếng Việt là hình thức phiên âm của chữ Nôm do nhân dân ta sáng tạo nên, vốn có nguồn gốc từ tiếng Trung Hoa thời xưa.
+
+### 3.2.2. Kết luận
+
+Nhìn một cách tổng quan, phương pháp dựa trên từ (word-base) cho độ chính xác khá cao (trên 95%) nhờ vào tập ngữ liệu huấn luyện lớn, được đánh dấu chính xác, tuy nhiên hiệu suất của thuật toán phụ thuộc hoàn toàn vào ngữ liệu huấn luyên. Bởi vì mục đích của các tác giả [Đinh Điền et al, 2001] là thực hiện tách từ thật chính xác để phục vụ cho việc dịch máy nên tác giả đã chọn phương pháp WFST. Với các phương pháp cần phải sử dụng từ điển hoặc tập huấn luyện, ngoài việc tách từ thật chính xác, ta còn có thể nhờ vào các thông tin đánh dấu trong tập ngữ liệu để thực hiện các mục đích khác cần đến việc xác định từ loại như dịch máy, kiểm lỗi chính tả, từ điển đồng nghĩa... Do vậy, mặc dù thời gian huấn luyện khá lâu, cài đặt khá phức tạp, chi phí tạo tập ngữ liệu huấn luyện rất tốn kém, nhưng kết quả mà hướng tiếp cận dựa trên từ mang lại cho mục đích dịch máy là rất xứng đáng cho công sức bỏ ra.
+
+Dựa trên kết quả của tác giả [Đinh Điền et al, 2001], trong đồ án này nhóm sẽ sử dụng phương pháp tách từ là word-base dựa trên lợi thế dễ dàng ứng dụng và độ chính xác chấp nhận được.
 
 # IV. BÀI TOÁN PHÂN LOẠI TIN TỨC
 
