@@ -196,7 +196,7 @@ Mặt khác, phương pháp Naïve Bayes là phương pháp khá cổ điển đ
 
 Naïve Bayes bởi phương pháp đơn giản, tốc độ nhanh, cài đặt tương đối không quá phức tạp phù hợp với thời gian cho phép.
 
-SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng thời gian huấn luyện lại rất lâu và đồi hỏi lượng dữ liệu huấn luyện lớn.
+SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng thời gian huấn luyện lại rất lâu và đòi hỏi lượng dữ liệu huấn luyện lớn.
 
 ## 4.4. Thu thập dữ liệu và làm sạch dữ liệu (Raw Data và Clean Data)
 
