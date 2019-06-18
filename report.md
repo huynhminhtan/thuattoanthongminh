@@ -203,7 +203,7 @@ SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng 
 ## 4.5. Trích xuất đặc trưng (Feature Extraction)
 
 ## 4.6. Phân lớp văn bản (Implement Model và Train Model)  
-###4.6.1. Bộ phân lớp Naive Bayes  
+### 4.6.1. Bộ phân lớp Naive Bayes  
 Cho V1,V2, …, Vn là phân hoạch không gian mẫu V, mỗi Vi là một lớp. Không gian các thể hiện X gồm các thể hiện được mô tả bởi tập thuộc tính A1, A2, …, An. Không gian các thể hiện X là tập học. Khi có thể hiện mới với giá trị <a1,a2,…, an>, bộ phân lớp sẽ xuất hiện giá trị hàm phân lớp f(x) là một trong các Vi.
 Tiếp cận Bayes lấy các giá trị có xác suất cao nhất VMAP cho thể hiện mới. Chữ MAP viết tắt của cụm từ Maximum A Posterior.  
 <img src="./assets/CT-10.png">  
@@ -229,7 +229,7 @@ Một mẫu chưa được gặp X = <mưa, nóng, cao, không>
 P(X|p)P(p) = P(mưa|p)P(nóng|p)P(cao|p)P(không|p)P(p) = 3/9x2/9x3/9x6/9x9/14=0.010582  
 P(X|n)P(n)= P(mưa|n)P(nóng|n)P(cao|n)P(không|n)P(n) = 2/5x2/5x4/5x2/5/5/14=0.018286  
 Vậy mẫu X được phân vào lớp n (không chơi bóng đá)  
-###4.6.2. Phân loại văn bản với Naive Bayes  
+### 4.6.2. Phân loại văn bản với Naive Bayes  
 Phương pháp phân loại Bayes thực hiện việc phân loại bắt đầu với việc phân tích văn bản bằng cách trích những từ được chứa trong văn bản. Để thực hiện việc phân tích này, một thuật toán trích từ đơn giản để lấy ra những từ khác nhau trong văn bản. Những từ này sẽ được lưu vào một danh sách dùng để tính xác suất mỗi từ thuộc về mỗi loại. Danh sách từ sau đó sẽ được sử dụng để sinh ra một bảng chứa xác suất của từ đó thuộc về một loại. Bảng này sẽ gồm một cột “word” chứa các từ trong văn bản và một số cột xác suât của từ đó cho mỗi loại, tức là có bao nhiêu loại văn bản thì sẽ có bấy nhiêu cột xác suất. Giá trị của cột xác suất sẽ  tính theo công thức Bayes mà sẽ được trình bày ở bên dưới.  
 Trước khi tính xác của từ thuộc về một loại nào, từ đó cần phải được huấn luyện bằng một tập dữ liệu huấn luyện được tổ chức, định dạng theo một qui chuẩn. Mỗi từ phân biệt từ các văn bản huấn luyện trong cùng một loại sẽ đưa vào danh sách xuất hiện từ cho loại đó.  
 Dựa vào danh sách xuất hiện của từ, việc phân loại theo xác suất sẽ tiến hành tính toán xác suất hậu nghiệm của từ đó thuộc về một loại cụ thể bằng cách sử dụng công thức (2). Từ xuất hiện càng nhiều cho một loại thì xác suất càng càng cao, việc phân loại càng chính xác.  
