@@ -202,8 +202,68 @@ SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng 
 
 ## 4.5. Trích xuất đặc trưng (Feature Extraction)
 
-## 4.6. Phân lớp văn bản (Implement Model và Train Model)  
-### 4.6.1. Bộ phân lớp Naive Bayes  
+### 4.5.1. Tách từ (Words segmentation)
+
+Tách từ là một bước quan trọng bậc nhất trong xử lý ngôn ngữ tự nhiên. Tiếng Việt không đơn giản như tiếng Anh vì nó có thêm các từ ghép, một từ tiếng Việt có thể được tạo bởi nhiều hơn một âm. Có ví dụ câu như sau:
+
+<img src="./assets/wsa.png">
+
+Có thể tách từ theo nhiều cách khác nhau gây ra sự nhập nhằng về mặt ngữ nghĩa dẫn đến thuật toán áp dụng sẽ không có sự chính xác cao. Có một số công cụ để thực hiện việc này mà phổ biến nhất đó là VnTokenizer.
+
+### 4.5.2. Xóa những từ không cần thiết (Remove Stopwords)
+
+Để có được đạt được sự chính xác của thuật toán phân loại, việc làm giảm những từ không cần thiết, những từ mà xuất hiện nhiều lần không không mang ý nghĩa như "thì", "là"... Việc này là công đoạn quan trọng để giảm số chiều vector đưa vào thuật toán xử lý cho chính xác. Chiều càng nhiều mà số chiều không có ý nghĩa cũng nhiều thì dẫn đến kết quả dự đoán có độ chính xác rất thấp.
+
+Trong Tiếng Việt chúng ta cần định nghĩa một danh sách các stopwords tùy thuộc vào lĩnh vực mà chúng ta cần xử lý văn bản. Tức là với xử lý tin tức báo chí sẽ có một tập stopwords khác với xử lý bài báo khoa học hay thơ ca.
+
+### 4.5.3. Xây dựng từ điển (Build Dictionary)
+
+Trước khi qua công đoạn biểu diễn các từ thành vector thì cẩn phải có một bộ từ điển, bộ này có nhiệm vụ sẽ lưu tất cả những từ đã được qua xử lý Words segmentation và Remove Stopwords của toàn bộ các từ trong tập dữ liệu đầu vào.
+
+### 4.5.4. Chuyển hóa sang vector bằng Bag of Word
+
+<img src="./assets/slipt-words.png" width="400">
+
+*[Biểu diễ vector bằng BoW]*
+
+Và bước đầu tiên của hầu hết thuật toán phân loại văn bản là chuyển văn bản thành một dạng mô tả khác sao cho phù hợp với thuật toán cần sử dụng. Hầu hết các thuật toán phân loại đều sử dụng cách biểu diễn văn bản sử dụng vertor đặc trưng.
+
+Hoặc có thể hiểu, các thuật toán không thể nhận được đầu vào là chữ với dạng biểu diễn thông thường. Để máy tính có thể hiểu được, ta cần chuyển các từ trong ngôn ngữ tự nhiên về dạng mà các thuật toán có thể hiểu được như là dạng số, dạng vector.
+
+Bag of Words là một thuật toán hỗ trợ xử lý ngôn ngữ tự nhiên và mục đích của BoW là phân loại text hay văn bản. Ý tưởng của BoW là phân tích và phân nhóm dựa theo "Bag of Words". Với test data mới, tiến hành tìm ra số lần từng từ của test data xuất hiện trong "bag".
+
+Ví dụ ta có 2 câu như sau:
+
+The quick brown fox jumps over the lazy dog and  
+Never jump over the lazy dog quickly
+
+Từ 2 câu trên, tiến hành tạo từ điển chứa các từ xuất hiện trong từng câu, công đoạn này giống như ở bước Xây dựng từ điển (Build Dictionary).
+
+```text
+    'brown': 0,
+    'dog': 1,
+    'fox': 2,
+    'jump': 3,
+    'jumps': 4,
+    'lazy': 5,
+    'never': 6,
+    'over': 7,
+    'quick': 8,
+    'quickly': 9,
+    'the': 10,
+```
+
+Dựa vào từ điển vừa tạo, tiến hành tạo vector lưu trữ số lần xuất hiện của từ trong từ điển ứng với mỗi câu. Và do từ điển đang có 10 từ nên mỗi vector sẽ có 10 phần tử như sau:
+
+```text
+[1,1,1,0,1,1,0,1,1,0,2]
+[0,1,0,1,0,1,1,1,0,1,1]
+```
+
+## 4.6. Phân lớp văn bản (Implement Model và Train Model)
+
+### 4.6.1. Bộ phân lớp Naive Bayes
+
 Cho V1,V2, …, Vn là phân hoạch không gian mẫu V, mỗi Vi là một lớp. Không gian các thể hiện X gồm các thể hiện được mô tả bởi tập thuộc tính A1, A2, …, An. Không gian các thể hiện X là tập học. Khi có thể hiện mới với giá trị <a1,a2,…, an>, bộ phân lớp sẽ xuất hiện giá trị hàm phân lớp f(x) là một trong các Vi.
 Tiếp cận Bayes lấy các giá trị có xác suất cao nhất VMAP cho thể hiện mới. Chữ MAP viết tắt của cụm từ Maximum A Posterior.  
 <img src="./assets/CT-10.png">  
@@ -229,7 +289,9 @@ Một mẫu chưa được gặp X = <mưa, nóng, cao, không>
 P(X|p)P(p) = P(mưa|p)P(nóng|p)P(cao|p)P(không|p)P(p) = 3/9x2/9x3/9x6/9x9/14=0.010582  
 P(X|n)P(n)= P(mưa|n)P(nóng|n)P(cao|n)P(không|n)P(n) = 2/5x2/5x4/5x2/5/5/14=0.018286  
 Vậy mẫu X được phân vào lớp n (không chơi bóng đá)  
+
 ### 4.6.2. Phân loại văn bản với Naive Bayes  
+
 Phương pháp phân loại Bayes thực hiện việc phân loại bắt đầu với việc phân tích văn bản bằng cách trích những từ được chứa trong văn bản. Để thực hiện việc phân tích này, một thuật toán trích từ đơn giản để lấy ra những từ khác nhau trong văn bản. Những từ này sẽ được lưu vào một danh sách dùng để tính xác suất mỗi từ thuộc về mỗi loại. Danh sách từ sau đó sẽ được sử dụng để sinh ra một bảng chứa xác suất của từ đó thuộc về một loại. Bảng này sẽ gồm một cột “word” chứa các từ trong văn bản và một số cột xác suât của từ đó cho mỗi loại, tức là có bao nhiêu loại văn bản thì sẽ có bấy nhiêu cột xác suất. Giá trị của cột xác suất sẽ  tính theo công thức Bayes mà sẽ được trình bày ở bên dưới.  
 Trước khi tính xác của từ thuộc về một loại nào, từ đó cần phải được huấn luyện bằng một tập dữ liệu huấn luyện được tổ chức, định dạng theo một qui chuẩn. Mỗi từ phân biệt từ các văn bản huấn luyện trong cùng một loại sẽ đưa vào danh sách xuất hiện từ cho loại đó.  
 Dựa vào danh sách xuất hiện của từ, việc phân loại theo xác suất sẽ tiến hành tính toán xác suất hậu nghiệm của từ đó thuộc về một loại cụ thể bằng cách sử dụng công thức (2). Từ xuất hiện càng nhiều cho một loại thì xác suất càng càng cao, việc phân loại càng chính xác.  
