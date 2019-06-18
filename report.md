@@ -202,7 +202,49 @@ SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng 
 
 ## 4.5. Trích xuất đặc trưng (Feature Extraction)
 
-## 4.6. Phân lớp văn bản (Implement Model và Train Model)
+## 4.6. Phân lớp văn bản (Implement Model và Train Model)  
+###4.6.1. Bộ phân lớp Naive Bayes  
+Cho V1,V2, …, Vn là phân hoạch không gian mẫu V, mỗi Vi là một lớp. Không gian các thể hiện X gồm các thể hiện được mô tả bởi tập thuộc tính A1, A2, …, An. Không gian các thể hiện X là tập học. Khi có thể hiện mới với giá trị <a1,a2,…, an>, bộ phân lớp sẽ xuất hiện giá trị hàm phân lớp f(x) là một trong các Vi.
+Tiếp cận Bayes lấy các giá trị có xác suất cao nhất VMAP cho thể hiện mới. Chữ MAP viết tắt của cụm từ Maximum A Posterior.  
+<img src="./assets/CT-10.png">  
+Sử dụng định lý Bayes ta có:  
+<img src="./assets/CT-11.png">  
+Trong công thức trên có hai số hạng cần quan tâm là P(vi) và P(a1,a2,…,an). Ta tính P(vi) bằng cách đếm số lần xuất hiện của giá trị đích vi trong tập học. Để tính P(a1,a2,…,an) ta giả thuyết ban đầu các thuộc tính là độc lập. Nói cách khác, xác suất của một thể hiện quan sát được <a1, a2, …, an> trên mỗi lớp vi là tích của các khả năng của từng thuộc tính riêng biệt trên vi.  
+<img src="./assets/CT-12.png">  
+Do vậy, công thức V_MAP được viết lại là:  
+<img src="./assets/CT-13.png">  
+với NB là viết tắt của cụm từ Naïve Bayes  
+Bộ phân lớp Bayes liên quan đến bước học trong đó P(vj) và P(a1,a2,…,an) được tính dựa trên tập học.  
+Để phân lớp ta dùng công thức:  
+<img src="./assets/CT-14.png">  
+Ví dụ:  
+Cho bảng dữ liệu “Chơi bóng đá”  
+<img src="./assets/Table-1.png">  
+Ta có thể tính các xác suất sau:  
+<img src="./assets/Table-2.png">  
+Cuối cùng ta có P(p) = 9/14 và P(n) = 5/14  
+Với bảng dữ liệu trên. Cho phân lớp X chưa được tìm thấy như sau X= < mưa, nóng, cao, không>  
+Phân lớp X:  
+Một mẫu chưa được gặp X = <mưa, nóng, cao, không>  
+P(X|p)P(p) = P(mưa|p)P(nóng|p)P(cao|p)P(không|p)P(p) = 3/9x2/9x3/9x6/9x9/14=0.010582  
+P(X|n)P(n)= P(mưa|n)P(nóng|n)P(cao|n)P(không|n)P(n) = 2/5x2/5x4/5x2/5/5/14=0.018286  
+Vậy mẫu X được phân vào lớp n (không chơi bóng đá)  
+###4.6.2. Phân loại văn bản với Naive Bayes  
+Phương pháp phân loại Bayes thực hiện việc phân loại bắt đầu với việc phân tích văn bản bằng cách trích những từ được chứa trong văn bản. Để thực hiện việc phân tích này, một thuật toán trích từ đơn giản để lấy ra những từ khác nhau trong văn bản. Những từ này sẽ được lưu vào một danh sách dùng để tính xác suất mỗi từ thuộc về mỗi loại. Danh sách từ sau đó sẽ được sử dụng để sinh ra một bảng chứa xác suất của từ đó thuộc về một loại. Bảng này sẽ gồm một cột “word” chứa các từ trong văn bản và một số cột xác suât của từ đó cho mỗi loại, tức là có bao nhiêu loại văn bản thì sẽ có bấy nhiêu cột xác suất. Giá trị của cột xác suất sẽ  tính theo công thức Bayes mà sẽ được trình bày ở bên dưới.  
+Trước khi tính xác của từ thuộc về một loại nào, từ đó cần phải được huấn luyện bằng một tập dữ liệu huấn luyện được tổ chức, định dạng theo một qui chuẩn. Mỗi từ phân biệt từ các văn bản huấn luyện trong cùng một loại sẽ đưa vào danh sách xuất hiện từ cho loại đó.  
+Dựa vào danh sách xuất hiện của từ, việc phân loại theo xác suất sẽ tiến hành tính toán xác suất hậu nghiệm của từ đó thuộc về một loại cụ thể bằng cách sử dụng công thức (2). Từ xuất hiện càng nhiều cho một loại thì xác suất càng càng cao, việc phân loại càng chính xác.  
+<img src="./assets/CT-15.png">  
+Công thức trên cho thấy rằng bằng cách quan sát giá trị của một từ cụ thể wj, xác suất của một loại cụ thể Ci, Pr(Ci) có thể được chuyển thành xác suất hậu nghiệm Pr(Ci|wj). Pr(Ci|wj) là xác suất của từ wj thuộc về loại Ci. Pr(Ci) có thể được tính bằng công thức sau:  
+<img src="./assets/CT-16.png">  
+Pr(wj) có thể được tính bằng công thức sau:  
+<img src="./assets/CT-17.png">  
+Theo công thức Bayes trong phân loại văn bản, với giá trị của xác suất Pr(Category), Pr(Word|Category) và Pr(Word), xác suất hậu nghiệm Pr(Category | Word) của mỗi từ trong văn bản thuộc về một loại có thể được xác định.  
+Xác suất hậu nghiệm của một từ thuộc về mỗi loại sẽ được điền vào bảng xác suất bên dưới  
+<img src="./assets/Table-3.png">  
+Sau khi các ô xác suất được điền vào, xác suất tổng thể của một văn bản thuộc về một loại cụ thể Ci được tính bằng cách chia tổng mỗi cột xác suất cho tổng số từ trong văn bản.  
+<img src="./assets/CT-18.png">  
+trong đó w1, w2, w3, …., w n-1, wn là những từ được trích trong văn bản.  
+Loại nào có xác suất Pr(Category | Document) cao nhất thì văn bản sẽ thuộc về loại đó theo luật phân loại Bayes.  
 
 ## 4.7. Một số cách đánh giá bài toán phân loại văn bản
 
