@@ -159,7 +159,34 @@ Dựa trên kết quả của tác giả [Đinh Điền et al, 2001], trong đ�
 
 # IV. BÀI TOÁN PHÂN LOẠI TIN TỨC
 
-## 4.1. Lý do chọn phương pháp Naïve Bayes
+## 4.1. Quy trình tổng quan hiện thực bài toán phân loại văn bản
+
+<img src="./assets/computational-biology.png"> 
+
+Luồng xử lý cơ bản:  
+
+**Crawler data** (cào dữ liệu) -> **text normalization** (chuẩn hóa dữ liệu) -> **data preprocessing** (tiền xử lý dữ liệu) -> **features** (trích xuất đặc trưng) -> **learn/train model** (chọn model machine learning và huấn luyện) -> **evaluation/results** (đánh giá kết quả).
+
+Trong đó:
+
+- **Crawler data** (cào dữ liệu): Là công đoạn chuẩn bị tập dataset (bộ dữ liệu để sử dụng) được lấy từ nhiều nguồn khác nhau như website. Ví dụ, lấy 3 triệu bài báo từ 5 trang web tin tức nổi tiếng nhất Việt Nam.
+- **Text normalization** (chuẩn hóa dữ liệu): Công đoạn loại bỏ các thành phần không cần thiết từ dữ liệu mới crawler được có thể hiểu là làm sạch dữ liệu xóa đi dữ liệu rác cuối cùng nhận được đoạn văn bản chỉ có text. Ví dụ, xóa đi tag HTML, xóa link, xóa ký tự đặc biệt "\n \t &#64",...
+- **Data preprocessing** (tiền xử lý dữ liệu): Chuyển dữ liệu/ văn bản nhận được ở giai đoạn trên thành dữ liệu đầu vào (data input) thích hợp cho đúng với mô hình (model machine learning) sử dụng phân loại văn bản. Ví dụ, các công việc cần thực hiện trước khi đưa vào thuật toán phân loại văn bản tiếng Việt như: tách từ, chuẩn hóa từ, loại bỏ stopwords, vertor hóa từ. Đây là công đoạn quan trọng trong bài toán phân loại văn bản. Tham khảo: *[gioi-thieu-tien-xu-ly-trong-xu-ly-ngon-ngu-tu-nhien][2]*.
+- **Features** (trích xuất đặc trưng): Với bài toán phân loại trên thực tế, khi muốn phân loại cần phải dựa theo một đặc điểm nào đó như giới tính, hình dạng, kích thước dựa trên sự quan sát hoặc số liệu cụ thể. Trong bài toán phân loại cũng vậy, nhưng nó đòi hỏi việc phải tự động phát hiện ra các đặc điểm của đối tượng rồi mới thực hiện phân loại cho phù hợp. Ví dụ, phân loại hoa Hồng, phải phát hiện ra mỗi hoa đó có đặc điểm như thế nào xét cả về hình dạng, màu, kích thước, giống, mùi hương. Một đối tượng có rất nhiều đặc điểm, vậy dựa trên một hoặc nhiều đặc điểm nào để phân loại? Vì thế công đoạn này sẽ rúc trích hay lựa chọn bộ đặc điểm nào tối ưu nhất, dễ nhận dạng nhất, dễ phát hiện ra đối tượng đó nhất. Cuối cùng công đoạn này sẽ thu được một tập dữ liệu đã được trích xuất sau đó đưa vào thuật toán machine learning phân loại. Có 2 loại feature:
+  - Feature Selection (chọn lựa đặc trưng): là *chọn* ra một tập đặc trưng con từ không gian đặc trưng gốc.
+  - Feature Extraction (rút trích đặc trưng): là *biến đổi* (transform) không gian đặc trưng gốc thành một không gian đặc trưng nhỏ hơn để giảm số chiều đặc trưng. So với phương pháp chọn đặc trưng, rút trích không chỉ giảm số chiều mà còn thành công trong việc giải quyết vấn đề tính nhiều nghĩa (polysemy) và tính đồng nghĩa (synonym) của từ ở mức độ có thể chấp nhận. Xem thêm: *[LuanVanDaiHoc_2006_CNTT_DHKHTN-HCM_Vu_Nguyen_protected.pdf][3]*
+- **Learn/train model** (chọn model machine learning và huấn luyện): Lựa chọn một thuật toán tối ưu nhất cho bài toán phân loại văn bản.
+- **Evaluation/results** (đánh giá kết quả): Công đoạn cuối, đánh giá kết quả nhận được.
+
+## 4.2. Quy trình rút trích đặc trưng trong bài toán phân loại văn bản
+
+<img src="./assets/flow-class-part.png" width="300"> 
+
+Hầu hết các phương pháp máy học áp dụng cho bài toán phân loại văn bản đều sử dụng cách biểu diễn văn bản dưới dạng véc tơ đặc trưng. Điểm khác biệt duy nhất chính là không gian đặc trưng được chọn lựa. Tuy nhiên ở đây ta thấy nảy sinh một vấn đề cơ bản: Số lượng từ xuất hiện trong văn bản sẽ rất lớn. Như vậy, mỗi véc tơ có thể có hàng ngàn đặc trưng, hay nói cách khác mỗi véc tơ sẽ có số chiều rất lớn. Do vậy các véc tơ sẽ không đồng nhất về kích thước.
+
+Để giải quyết vấn đề thông thường chúng ta sẽ chọn lựa những đặc trưng được đánh giá là hữu ích, bỏ đi những đặc trưng không quan trọng. Đối với phân loại văn bản, quá trình này rất quan trọng bởi vì véc tơ văn bản có số chiều rất lớn (>>10000), trong đó số thành phần dư thừa cũng rất nhiều. Vì vậy các phương pháp chọn lựa đặc trưng rất hiệu quả trong việc giảm chiều của véc tơ đặc trưng văn bản, chiều của véc tơ văn bản sau khi được giảm chỉ còn lại khoảng 1000 đến 5000 mà không mất đi độ chính xác phân loại.
+
+## 4.3. Lý do chọn phương pháp Naïve Bayes
 
 Naïve Bayes là một phương pháp rất phổ biến sử dụng xác suất có điều kiện giữa từ và chủ đề để xác định chủ đề của văn bản. Các xác suất này dựa trên việc thống kê sự xuất hiện của từ và chủ đề trong tập huấn luyện. Tập huấn luyện lớn có thể mang lại kết quả khả quan cho Naïve Bayes.
 
@@ -171,18 +198,109 @@ Naïve Bayes bởi phương pháp đơn giản, tốc độ nhanh, cài đặt t
 
 SVM tuy là một phương pháp được cho là có hiệu suất cao, nhưng thời gian huấn luyện lại rất lâu và đồi hỏi lượng dữ liệu huấn luyện lớn.
 
-## 4.2. Thu thập dữ liệu và làm sạch dữ liệu (Raw Data và Clean Data)
+## 4.4. Thu thập dữ liệu và làm sạch dữ liệu (Raw Data và Clean Data)
 
-## 4.3. Trích xuất đặc trưng (Feature Extraction)
+## 4.5. Trích xuất đặc trưng (Feature Extraction)
 
-## 4.4. Phân lớp văn bản (Implement Model và Train Model)
+## 4.6. Phân lớp văn bản (Implement Model và Train Model)
 
-## 4.5. Đánh giá và kết luận
+## 4.7. Một số cách đánh giá bài toán phân loại văn bản
 
-## 4.6. Môi trường triển khai
+Có nhiều cách để đánh giá mô hình:
+
+### 4.7.1. Accuracy
+
+Chia thành hai phần **training** và **testing** áp dụng một mô hình để train từ tập dữ liệu **training**. Tiếp theo sử dụng mô hình đó dự đoán trên tập **testing** và cuối cùng là tìm ra tỉ lệ số dữ liệu dự đoán đúng / tổng số dữ liệu testing.
+
+### 4.7.2. Confusion matrix
+
+Cách tính sử dụng accuracy như ở trên chỉ cho biết được bao nhiêu phần trăm lượng dữ liệu được phân loại đúng mà không chỉ ra được cụ thể mỗi loại được phân loại như thế nào, lớp nào được phân loại đúng nhiều nhất, và dữ liệu thuộc lớp nào thường bị phân loại nhầm vào lớp khác. Để có thể đánh giá được các giá trị này, chúng ta sử dụng một ma trận được gọi là confusion matrix.
+
+Confusion matrix thể hiện có bao nhiêu điểm dữ liệu thực sự thuộc (actual) vào một class, và được dự đoán (predict) là rơi vào một class. Có tổng cộng 10 điểm dữ liệu và ma trận 3x3.
+
+```text
+ Total: 10 | Predicted | Predicted | Predicted |   
+           |    as: 0  |    as: 1  |    as: 2  |   
+-----------|-----------|-----------|-----------|---
+ True: 0   |     2     |     1     |     1     | 4 
+-----------|-----------|-----------|-----------|---
+ True: 1   |     1     |     2     |     0     | 3 
+-----------|-----------|-----------|-----------|---
+ True: 2   |     0     |     1     |     2     | 3 
+-----------|-----------|-----------|-----------|---
+```
+
+Ma trận thu được được gọi là confusion matrix. Nó là một ma trận vuông với **kích thước mỗi chiều bằng số lượng lớp dữ liệu**. Giá trị tại hàng thứ i, cột thứ j là số lượng điểm **lẽ ra thuộc vào class i nhưng lại được dự đoán là thuộc vào class j**. Như vậy, nhìn vào hàng thứ nhất (0), ta có thể thấy được rằng trong số bốn điểm thực sự thuộc lớp 0, chỉ có hai điểm được phân loại đúng, hai điểm còn lại bị phân loại nhầm vào lớp 1 và lớp 2.
+
+Có thể suy ra ngay rằng tổng các phần tử trong toàn ma trận này chính là số điểm trong tập kiểm thử. Các phần tử trên đường chéo của ma trận là số điểm được phân loại đúng của mỗi lớp dữ liệu.
+
+Suy ra **accuracy** chính bằng tổng các phần tử trên đường chéo chia cho tổng các phần tử của toàn ma trận.
+
+Xem thêm: [evaluation-confusion-matrix][15]
+
+### 4.7.3. Precision, Recall và F1-Score
+
+Trong những bài toán này, người ta thường định nghĩa lớp dữ liệu quan trọng hơn cần được xác định đúng là lớp Positive (P-dương tính), lớp còn lại được gọi là Negative (N-âm tính). Ta định nghĩa True Positive (TP), False Positive (FP), True Negative (TN), False Negative (FN) dựa trên confusion matrix chưa chuẩn hoá như sau:
+
+```text
+                  |      Predicted      |      Predicted      |
+                  |     as Positive     |     as Negative     |
+------------------|---------------------|---------------------|
+ Actual: Positive | True Positive (TP)  | False Negative (FN) |
+------------------|---------------------|---------------------|
+ Actual: Negative | False Positive (FP) | True Negative (TN)  |
+------------------|---------------------|---------------------|
+```
+
+Cách tính Precision và Recall.
+
+<img src="./assets/pr.png" width="400">
+
+Precision cao đồng nghĩa với việc độ chính xác của các điểm tìm được là cao. Recall cao đồng nghĩa với việc True Positive Rate cao, tức tỉ lệ bỏ sót các điểm thực sự positive là thấp.
+
+#### a. Precision (tỷ lệ chính xác) - bao nhiêu cái đúng được lấy ra
+
+<img src="./assets/percision.png" width="270">
+
+Xem xét trên tập dữ liệu kiểm tra (data-test) xem có **bao nhiêu dữ liệu được mô hình dự đoán đúng**. Tức là, số phát hiện đúng chia cho số đem đi kiểm thử. Đây chính là chỉ số accuracy - độ chính xác như bên trên. Giá trị càng cao, càng tốt.
+
+#### b. Recall (tỷ lệ tái hiện) - bao nhiêu cái được lấy ra là đúng
+
+<img src="./assets/recall.png">
+
+Recall được định nghĩa là tỉ lệ số điểm **true positive** trong số những điểm thực sự (actual) là **positive** (TP + FN).
+
+Thể hiện tỉ lệ dự đoán chính xác của một dữ liệu.
+
+#### c. F1-Score - trung bình điều hòa (harmonic mean)
+
+<img src="./assets/f1-score.png" width="280">
+
+Đây được gọi là một trung bình điều hòa (harmonic mean) của các tiêu chí Precision và Recall. Nó có xu hướng lấy giá trị gần với giá trị nào nhỏ hơn giữa 2 giá trị Precision và Recall và đồng thời nó có giá trị lớn nếu cả 2 giá trị Precision và Recall đều lớn. Chính vì thế F1-Score thể hiện được một cách khách quan hơn performance của một mô hình học máy.
+
+## 4.8. Kết quả thực nghiệm
+
+## 4.9. Môi trường triển khai
+
+Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bản tiếng Việt chạy trên môi trường và một số thư viện hỗ trợ như bên dưới:
+
+- Triển khai phần cứng: Ubuntu 16.4, Core™ i5, 2.30GHz × 4 (4 nhân 8 luồng), SSD, Mem 16G.
+- Môi trường triển khai: Python 3.5.
+- Các thư viện hỗ trợ:
+  - Numpy/Scipy: thư viện tính toán số học cơ bản.
+  - Matplotlib: thư viện dùng để vẽ đồ thị, biểu đồ.
+  - Jupyter Notebook: trình soạn thảo và thực thi code có khả năng hiển thị kết quả thực thi được.
+  - Pandas: thư viện dùng xử lý dữ liệu lớn một cách nhanh chóng và dễ dàng.
+  - Scikit-Learn: thư viện chuẩn dành cho Machine Learning của Python, được hiện thực sẵn các model chỉ cần gọi và thực thi.
+  - Gensim: thư viện xử lý ngôn ngữ tự nhiên chuyên biệt về topic model.
 
 # V. Kết quả và hướng phát triển
 
 ## 5.1 Kết quả đạt được
 
 ## 5.2 Hướng phát triển
+
+-------------------------------------------------------
+
+Làm rõ được tại sao phải chọn Naive Bayes
+Các phương pháp tách từ trong Tiếng Việt
