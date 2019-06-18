@@ -27,7 +27,7 @@ Gần đây, một phương pháp tách từ mới được giới thiệu có �
 
 Trong pham vi đồ án này, nhóm sẽ tập trung tìm hiểu về cách thức phân loại văn bản trong Tiếng Việt cụ thể là phân loại các bài báo tin tức được lấy từ các trang báo điện tử lớn ở Việt Nam.
 
-Song song đó, nhóm cũng tìm hiểu ở mức cơ bản một số phương pháp phân loại văn bản hiện có đang áp dụng cho tiếng Anh như Support vector Machine (SVM), K–Nearest Neighbor (kNN) và Naïve Bayes (NB).
+Song song đó, nhóm cũng tìm hiểu ở mức cơ bản một số phương pháp phân loại văn bản hiện có đang áp dụng cho tiếng Anh như Support vector Machine (SVM), K–Nearest Neighbor (kNN) và Naïve Bayes (NB) để có cái nhìn tổng quan và cơ bản nhất.
 
 Cuối cùng sẽ áp dụng phương pháp Naïve Bayes để giải quyết bài toán phân loại bài báo trong Tiếng Việt, từ việc thu thập dữ liệu trên internet, rồi đến làm sạch dữ liệu, tiền xử lý dữ liệu, rút trích đặc trưng, tách từ, áp dụng model, training model và cuối cùng là đưa ra nhận xét và đánh giá.
 
