@@ -1,2 +1,3 @@
 /refers-private
-/trained_model/gaussiannb_nb_model.pk
+/source/trained_model/gaussiannb_nb_model.pk
+/source/data
