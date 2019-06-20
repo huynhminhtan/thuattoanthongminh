@@ -1,3 +1,6 @@
 /refers-private
 /source/trained_model/gaussiannb_nb_model.pk
-/source/data
+# /source/data
+
+/source/data/new
+/source/data/old
