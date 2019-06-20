@@ -443,7 +443,14 @@ print('(micro_ap, micro_ar) = (%.2f, %.2f)' % (macro_ap, macro_ar))
 Macro-average F-Score cũng được tính tương tự như F-score nhưng dựa trên macro-average precision và macro-average recall.
 
 ## 4.8. Kết quả thực nghiệm
+Trong đồ án này, nhóm sử dụng cách đánh giá Precision, Recall và F1-Score để đánh giá mô hình.
+Giải thích các thông số:
+- Precision: số bài báo nhận diện đúng trên tổng số các bài báo được nhận diện là trong cùng thể loại.
+- Recall: số bài báo nhận diện được trong tất cả các bài báo cùng thể loại.
+- F1-Score: Trung bình điều hòa có precision và recall, thể hiện độ tốt của mô hình.
+Bảng kết quả dùng phương pháp Naïve Bayes
 
+Đối với một vài loại mô hình đạt được kết quả khá tốt (vi tính, pháp luật, sức khỏe, kinh doanh), tuy nhiên đối với thể loại thể thao và thế giới kết quả không được như mong đợi.
 ## 4.9. Môi trường triển khai
 
 Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bản tiếng Việt chạy trên môi trường Linux và một số thư viện hỗ trợ như bên dưới:
@@ -461,6 +468,12 @@ Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bả
 # V. Kết quả và hướng phát triển
 
 ## 5.1 Kết quả đạt được
+
+- Mô hình phân loại bài báo đáp ứng yêu cầu tối thiểu.
+- Mô hình với độ chính xác khá cao, mặc dù đối với một vài thể loại vẫn chưa được tốt. Vì vậy nhóm sẽ có gắng hoàn thiện hơn.
+- Tìm hiểu về Scikit-Learn: thư viện chuẩn dành cho Machine Learning của Python.
+- Tìm hiểu về một vài phương pháp cho bài toán xử lý ngôn ngữ tự nhiên.
+- Biết cách đánh giá một model.
 
 ## 5.2 Hướng phát triển
 
