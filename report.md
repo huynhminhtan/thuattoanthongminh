@@ -449,7 +449,7 @@ Giải thích các thông số:
 - Recall: số bài báo nhận diện được trong tất cả các bài báo cùng thể loại.
 - F1-Score: Trung bình điều hòa có precision và recall, thể hiện độ tốt của mô hình.
 Bảng kết quả dùng phương pháp Naïve Bayes
-
+<img src="./assets/Result.png"> 
 Đối với một vài loại mô hình đạt được kết quả khá tốt (vi tính, pháp luật, sức khỏe, kinh doanh), tuy nhiên đối với thể loại thể thao và thế giới kết quả không được như mong đợi.
 ## 4.9. Môi trường triển khai
 
