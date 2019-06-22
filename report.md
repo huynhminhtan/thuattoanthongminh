@@ -477,6 +477,9 @@ Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bả
 
 ## 5.2 Hướng phát triển
 
+- Trong bài toán phân loại văn bản, vấn đề tiếp theo là xây dựng khả năng học tăng cường cho bộ phân loại. Trong thực tế số thể loại rất phong phú, vì vậy khả năng học tăng cường sẽ giải quyết tốt các nhu cầu của mọi người khi áp dụng thực tế.
+- Ngoài ra nhóm sẽ tiếp tục tìm cách tăng độ chính xác và tốc độ của thuật toán.
+
 -------------------------------------------------------
 
 Làm rõ được tại sao phải chọn Naive Bayes  
