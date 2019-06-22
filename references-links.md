@@ -73,6 +73,7 @@ https://viblo.asia/p/phan-loai-van-ban-tieng-viet-tu-dong-phan-1-yMnKM3bal7P
   - https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52
 - Cài đặt virtualenv.
   - https://docs.python-guide.org/dev/virtualenvs/
-  - https://kipalog.com/posts/Gioi-thieu-Virtual-Environment-trong-Python, https://medium.com/@eleroy/jupyter-notebook-in-a-virtual-environment-virtualenv-8f3c3448247
+  - https://kipalog.com/posts/Gioi-thieu-Virtual-Environment-trong-Python
+  - https://medium.com/@eleroy/jupyter-notebook-in-a-virtual-environment-virtualenv-8f3c3448247
   - https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
   - https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda
