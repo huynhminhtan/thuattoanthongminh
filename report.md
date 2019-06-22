@@ -484,3 +484,15 @@ Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bả
 
 Làm rõ được tại sao phải chọn Naive Bayes  
 Các phương pháp tách từ trong Tiếng Việt
+
+### Hướng dẫn deploy
+
+Chạy trên nền Python 2.x, thực thi code sử dụng Jupyter notebook chạy trên biến môi trường virtualenv (đã setup sẵn các thư viện kèm theo). Có thể chạy trên Python thuần hoặc sử dụng Anaconda.
+
+- Cài đặt Jupyter notebook (Python thuần hoặc Anaconda). 
+  - https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52 
+- Cài đặt virtualenv (thông qua Python thuần hoặc Anaconda).
+  - https://kipalog.com/posts/Gioi-thieu-Virtual-Environment-trong-Python, https://medium.com/@eleroy/jupyter-notebook-in-a-virtual-environment-virtualenv-8f3c3448247
+  - https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
+  - https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda
+- Chạy Jupyter notebook trên môi trường virtualenv. Bằng cách chạy `source /venv/bin/activate` sau khi đã chạy trên môi trường ảo virtualenv thực thi Juypyter bằng lệnh `jupyter notebook` và chạy file *main.ipynb* trên browser thực thi của Jupyter notebook.
