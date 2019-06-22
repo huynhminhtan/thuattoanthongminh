@@ -489,9 +489,10 @@ Các phương pháp tách từ trong Tiếng Việt
 
 Chạy trên nền Python 2.x, thực thi code sử dụng Jupyter notebook chạy trên biến môi trường virtualenv (đã setup sẵn các thư viện kèm theo). Có thể chạy trên Python thuần hoặc sử dụng Anaconda.
 
-- Cài đặt Jupyter notebook (Python thuần hoặc Anaconda). 
+- Cài đặt Jupyter notebook (Python thuần hoặc Anaconda).
   - https://towardsdatascience.com/running-jupyter-notebook-in-google-cloud-platform-in-15-min-61e16da34d52 
 - Cài đặt virtualenv (thông qua Python thuần hoặc Anaconda).
+  - https://docs.python-guide.org/dev/virtualenvs/
   - https://kipalog.com/posts/Gioi-thieu-Virtual-Environment-trong-Python, https://medium.com/@eleroy/jupyter-notebook-in-a-virtual-environment-virtualenv-8f3c3448247
   - https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
   - https://stackoverflow.com/questions/38217545/what-is-the-difference-between-pyenv-virtualenv-anaconda
