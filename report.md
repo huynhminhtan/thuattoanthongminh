@@ -485,6 +485,10 @@ Trong đồ án này, nhóm đã hiện thực bài toán phân loại văn bả
 Làm rõ được tại sao phải chọn Naive Bayes  
 Các phương pháp tách từ trong Tiếng Việt
 
+-------------------------------------------------------
+
+Nội dung tài liệu mục đích phục vụ việc học tập và nội dung được tham khảo từ rất nhiều nguồn khác nhau. Thanks all!
+
 ### Hướng dẫn deploy
 
 Chạy trên nền Python 2.x, thực thi code sử dụng Jupyter notebook chạy trên biến môi trường virtualenv (đã setup sẵn các thư viện kèm theo). Có thể chạy trên Python thuần hoặc sử dụng Anaconda.
